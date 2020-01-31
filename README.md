@@ -1,2 +1,7 @@
 # notes
-An repository with my personal studies and summaries
+
+Um repositório com meus estudos pessoais
+
+## Tópicos
+
+* [Front End](./front-end.md)
