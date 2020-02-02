@@ -1,3 +1,8 @@
+---
+title: Javascript
+lang: 'pt-BR'
+---
+
 # Javascript
 
 ## Referências
