@@ -1,0 +1,16 @@
+{
+  "name": "notes",
+  "description": "A repository with some study notes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/emanuelgsouza/notes.git",
+  "author": "Emanuel Souza <emanuelgdesouza@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "devDependencies": {
+    "vuepress": "^1.3.0"
+  }
+}
