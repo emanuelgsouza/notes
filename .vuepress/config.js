@@ -16,7 +16,8 @@ module.exports = {
     sidebar: [
       '/',
       '/front-end/',
-      '/javascript/'
+      '/javascript/',
+      '/data-structures/'
     ]
   }
 }
