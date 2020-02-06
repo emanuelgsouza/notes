@@ -142,3 +142,42 @@ O que seriam entradas representativas? Seriam as entradas que representam alguns
 
 * O número de entradas será uma probabilidade
 * Exige tratamento matemático, pois eu preciso saber a distribuicão de probabilidade das entradas possíveis para o meu algoritmo para definir a entrada mais comum
+
+## Notação O
+
+### Definição da Notação O
+
+Aprendemos anteriormente que quando queremos expressar a ordem de grandeza de um algoritmo, ignoramos alguns elementos da nossa função, tais como as contantes adtivas e multiplicativas. A notação O visa a expressar exatamente o elemento da nossa função que é dominante, que expressa a ordem de grandeza de nosso algoritmo. Em outras palavras, a **notação de O busca exprimir os limites superiores da nossa equação**. Exemplos:
+
+* `f = n2 - 1 => f = O(n2)`, pois o termo `n2` é o **termo dominante** da nossa equação
+* `f = 403 => f = O(1)`, pois em ordem de grandeza, a variação será constante
+
+### Propriedades da notação O
+
+Sejam *g*, *h* funções reais (que expressam uma ordem de grandeza de um algoritmo) e *k* sendo uma constante, temos:
+
+* `O(g + h) = O(g) + O(h)`
+* `O(g . h) = O(g) . O(h)`
+* `O(k + g) = k.O(g) = O(g)`, lembre-se, quando tratamos de ordem de grandeza, constantes somem...
+
+### Como determinar a complexidade de procedimentos recursivos?
+
+1. Determine o número total de chamadas do procedimento recursivo
+2. Determine o número total se passos, sem a chamada recursiva
+3. Complexidade total: numero de chamadas multiplicada pela complexidade de cada chamada.
+
+## Notação teta
+
+Determina que ambas as funções precisam ter ordem de grandezas iguais, sendo assim, quando afirmamos que `f = teta(g)`, sendo f e g funções reais de uma mesma variável n, então `f = O(g)` e `g = O(f)`. Exemplo:
+
+* `f = n2 - 1` => `f = O(n2)`
+* `g = n2`     => `g = O(n2)` => `g = O(f)` => `f = teta(g)`, pois ambas as funções g e f possuem a mesma complexidade
+
+## Notação ômega
+
+Pode-se dizer que a notação ômega é praticamente um inverso da notação O, pois ela busca **exprimir a os limites inferiores da equação**.
+
+Exemplo:
+
+* Tendo uma função `f = n2 - 1`, então `f = O(n2)`
+* Assim, a mesma função `f = n2 - 1` será, `f = omega(1)`, pois aqui busca o limite inferior da função, que é a constante 1
