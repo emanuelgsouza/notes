@@ -181,3 +181,96 @@ Exemplo:
 
 * Tendo uma função `f = n2 - 1`, então `f = O(n2)`
 * Assim, a mesma função `f = n2 - 1` será, `f = omega(1)`, pois aqui busca o limite inferior da função, que é a constante 1
+
+## Lista Linear
+
+Uma lista linear agrupa informações referentes a um conjunto de elementos que, de alguma forma, se relacionam entre si. Temos como exemplos:
+
+* Notas de alunos de uma turma
+* Lista de nomes de clientes de uma determinada empresa
+* Lista de produtos de uma loja
+
+Podemos executar as seguintes operacões:
+
+* Busca de um elemento
+* Insercão de um novo elemento
+* Remocão de um elemento
+
+### Classificacão de uma lista linear
+
+Existe as seguintes formas de classificarmos uma lista linear:
+
+1. Alocacão de memória
+2. Modo como os elementos serao inseridos/removidos
+3. Modo de indexacão dos elementos
+
+#### Alocacão de memória
+
+As **listas sequenciais** possuem os elementos em posicões contíguas de memória, ou seja, fisicamente, os elementos se posicionam um após o outro. Tal esquema físico compartilha do esquema lógico da lista, haja vista que logicamente, os elementos também estarão consecutivos um ao outro.
+
+Já as **listas encadeadas** possuem os elementos em posicões dispersas de memória, sendo **ligados por ponteiros**. Neste modelo de alocacão, os elementos logicamente consecutivos não estarão consecutivos fisicamente.
+
+#### Modo como os elementos serao inseridos/removidos
+
+1. **Listas genéricas**: os elementos poderão ser inseridos e removidos em qualquer local da lista, **sem restricão**. Elas são mais difíceis de implementar, pois fica mais trabalhoso lidar com a não restricão nas operacões de insercão e remocão.
+2. **Deques**: os elementos serão inseridos e removidos nas extremidades da lista
+3. **Pilhas**: as insercões e remocão são permitidas apenas num dos lados da estrutura (esquerda ou direita), sempre da extremidade. O outro lado é conhecido como extremidade fixa (*fundo da pilha*).
+4. **Filas**: as insercões são realizadas numa extremidade (*final da fila*), e a remocão na outra (*início da fila*).
+
+#### Modo de indexacão dos elementos
+
+Esse tipo de classificacão é exclusiva das listas sequenciais
+
+* **Vetores**: listas sequencias em que eu **preciso de apenas um índice para acessar determinado elemento**. Usamos para notacão do acesso a um elemento a seguinte estrutura: `v[indice]`, sendo `v` o vetor, e `indice` um número maior que zero e menor que `n`, sendo `n` a quantidade de elementos num vetor.
+* **Matrizes**: listas sequencias em que eu **preciso de dois índices para acessar determinado elemento**. Usamos para notacão do acesso a um elemento a seguinte estrutura: `v[i,j]`, sendo `i` a linha e `j` e a coluna.
+
+### Buscas numa lista linear
+
+#### Busca Linear
+
+Possui complexidade no pior caso de `O(n)`, sendo `n` a quantidade de elementos na lista, sendo que isso pode acontecer em duas situacões:
+
+* O elemento não existe na lista; ou
+* O elemento existe na lista, mas como último elemento da mesma
+
+Exemplo com JavaScript:
+
+```js
+function linearSearch(list = [], x = null) {
+  let index = -1
+
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === x) {
+      index = i
+      break
+    }
+  }
+
+  return index
+}
+```
+
+#### Busca Linear Ordenada
+
+**Objetivo**: economizar comparacões, pois poderemos saber se não há mais necessidade em realizar as comparacões na lista.
+
+A complexidade de pior caso dessa funcão é a mesma da busca linear, porem, ela possui eficiência maior na complexidade média, devido ao pulo do gato em não precisar fazer comparacões na lista
+
+Exemplo com JavaScript:
+
+```js
+function linearSearchOrdered(list = [], x = null) {
+  let index = -1
+  let i = 0
+
+  while (list[i] < x) {
+    i++
+  }
+  
+  if (list[i] === x) {
+    index = i
+  }
+
+  return index
+}
+```
