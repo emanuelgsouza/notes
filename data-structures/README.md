@@ -274,3 +274,72 @@ function linearSearchOrdered(list = [], x = null) {
   return index
 }
 ```
+
+### Manipulação de listas lineares
+
+Sabemos que podemos realizar três operações básicas em listas: inserção, remoção e busca de um elemento. Nesta seção, tratamos das duas operações inicias.
+
+#### Inserção
+
+Ao inserirmos um elemento em nossa lista, precisamos tratar de ao menos duas questões:
+
+1. Nossa lista terá alocação dinâmica ou não na memória? Isto é, ela terá tamanho fixo ou não?
+2. A nossa lista poderá conter elementos repetidos?
+
+Se formos considerar as seguintes respostas para as perguntas acima:
+
+1. Terá tamanho fixo
+2. Não pode conter elementos repetidos
+
+Chegamos ao seguinte algoritmo (exemplo em JavaScript, ignorando a implementação interna do `Array`):
+
+```js
+function insert(list = [], maxElements = 0, element = null) {
+  if (list.length < maxElements) {
+    if (buscaElement(list, element) === -1) {
+      list.push(element)
+      return 'inserted'
+    }
+
+    return 'element already was in the list'
+  }
+
+  return 'overflow'
+}
+```
+
+Qual a complexidade desse algoritmo? Pois bem, como precisamos saber se o elemento já existe na lista, precisamos realizar uma busca. Portanto, a complexidade desse algoritmo estará atrelado à complexidade do algoritmo de busca. Se for as buscas já apresentadas, seria de `O(n)`.
+
+**Exercício**: suponha que a lista esteja ordenada, qual modificação eu precisaria realizar no algoritmo acima para que, ao inserir o elemento, este ocupe o seu devido lugar, mantendo a ordem anterior?
+
+#### Remoção
+
+Para a remoção, seguimos as seguintes premissas:
+
+1. Precisamos saber que o elemento existe
+2. Não podemos remover um elemento de uma lista vazia
+
+Sendo assim, o algoritmo fica:
+
+```js
+function remove(list = [], element = null) {
+  if (list.length === 0) {
+    return 'underflow'
+  }
+
+  const index = buscaElement(list, element)
+
+  if (index !== -1) {
+    for (let i = index; i < list.length; i--) {
+      list[i] = list[i + 1]
+    }
+
+    return 'removed'
+  }
+
+  return 'element is not in the list'
+}
+```
+
+A complexidade do algoritmo, portanto, será a complexidade da busca, tal como no outro.
+
