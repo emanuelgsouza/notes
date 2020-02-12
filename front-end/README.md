@@ -29,8 +29,6 @@ Depois de ler as inúmeras ISSUES do Front End BR e ver o Roadmap do freeCodeCam
 * Criar projetos (abordarei isso mais para frente)
 * Praticar, praticar, praticar...
 
-Neste repositório você irá encontrar algumas informações que podem ser úteis para você na sua caminhada. Aqui eu compartilho conhecimentos para que eu não esqueça (😎) e tenha aonde procurar.
-
 ## As linguagens Front End
 
 Antes de aprender qualquer linguagem é aconselhado que se exercite o que nós chamamos de [lógica de programação](https://becode.com.br/melhor-forma-de-aprender-logica-de-programacao/). Algoritmos são nada menos que passos que desenhamos para executar uma determinada tarefa. Portanto, antes das indicações de conteúdo, segue algumas fontes para se aprender e exercitar lógica:
@@ -44,6 +42,11 @@ Antes de aprender qualquer linguagem é aconselhado que se exercite o que nós c
 ## Ideias de projetos
 
 * [Projetos do freeCodeCamp](https://www.freecodecamp.org/learn/) é um bom começo
+
+## Web Standarts
+
+* [Site oficial da W3C](https://www.w3.org/standards/) a respeito dos padrões Web
+* Um [texto](https://www.smashingmagazine.com/2019/01/web-standards-guide/) bastante interessante da Smashing Magazine a respeito das *Web Standards* da W3C.
 
 ## Design
 
