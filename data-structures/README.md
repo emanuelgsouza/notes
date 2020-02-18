@@ -343,3 +343,61 @@ function remove(list = [], element = null) {
 
 A complexidade do algoritmo, portanto, será a complexidade da busca, tal como no outro.
 
+## Busca binária
+
+* [Artigo do Khan Academy](https://pt.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search)
+* [Artigo da equipe do IME](https://www.ime.usp.br/~pf/analise_de_algoritmos/aulas/binarysearch.html)
+
+### Métodos de ordenação
+
+* [Material da UTFPR sobre os diferentes métodos de ordenação](http://dainf.ct.utfpr.edu.br/~maurofonseca/lib/exe/fetch.php?media=cursos:if63c:if63ced_08_ordenacao.pdf)
+
+A seguir, possivelmente os mais conhecidos:
+
+#### Ordenação por Seleção (Selection Sort)
+
+* [Artigo bem explicado no Medium](https://medium.com/@henriquebraga_18075/algoritmos-de-ordena%C3%A7%C3%A3o-ii-selection-sort-8ee4234deb10)
+* [Artigo do Khan Academy sobre o assunto](https://pt.khanacademy.org/computing/computer-science/algorithms/sorting-algorithms/a/analysis-of-selection-sort)
+
+#### Ordenação por Inserção (Insertion Sort)
+
+* [Artigo explicando passo a passo o algoritmo](https://medium.com/@henriquebraga_18075/algoritmos-de-ordena%C3%A7%C3%A3o-iii-insertion-sort-bfade66c6bf1)
+
+#### Ordenação por Seleção e Troca (Bubble Sort)
+
+* [Artigo explicando passo a passo o funcionamento](https://medium.com/@henriquebraga_18075/algoritmos-de-ordena%C3%A7%C3%A3o-i-bubble-sort-c162a67261ef)
+
+#### Ordenação por Inserção através de incrementos decrescentes (ShellSort)
+
+* [Material do UFMG](https://homepages.dcc.ufmg.br/~cunha/teaching/20121/aeds2/shellsort.pdf)
+* [Artigo e vídeo do Geek for Geeks](https://www.geeksforgeeks.org/shellsort/)
+
+#### Ordenação por Particionamento (QuickSort)
+
+* [Artigo do Khan Academy](https://pt.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/overview-of-quicksort)
+
+#### Ordenação por Árvores (HeapSort)
+
+* [Artigo da equipe do IME](https://www.ime.usp.br/~pf/algoritmos/aulas/hpsrt.html)
+* [Artigo e vídeo do Geek for Geeks](https://www.geeksforgeeks.org/heap-sort/)
+
+#### Ordenação por Divisão e Conquista (Merge sort)
+
+* [Artigo do Khan Academy](https://pt.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/overview-of-merge-sort)
+
+## Pilha
+
+* [Implementação de pilhas no site do IME](https://www.ime.usp.br/~pf/algoritmos/aulas/pilha.html)
+* [Explicação de uma Pilha dada pelo pessoal da UFRJ](https://www.cos.ufrj.br/~rfarias/cos121/pilhas.html)
+
+## Fila
+
+* [Artigo da Caelum](https://www.caelum.com.br/apostila-java-estrutura-dados/filas/)
+* [Artigo do IME](https://www.ime.usp.br/~pf/algoritmos/aulas/fila.html)
+* [Material da UFRJ](https://www.cos.ufrj.br/~rfarias/cos121/filas.html)
+* [Artigo do Geek for Geeks](https://www.geeksforgeeks.org/queue-data-structure/)
+
+## Deque
+
+* [Material da USP](http://www.each.usp.br/digiampietri/ed/aula10.pdf)
+* [Material da UFSC](http://www.inf.ufsc.br/~r.mello/ine5384/9-Deques.pdf)
