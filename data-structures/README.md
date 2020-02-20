@@ -401,3 +401,31 @@ A seguir, possivelmente os mais conhecidos:
 
 * [Material da USP](http://www.each.usp.br/digiampietri/ed/aula10.pdf)
 * [Material da UFSC](http://www.inf.ufsc.br/~r.mello/ine5384/9-Deques.pdf)
+
+## Árvores
+
+* [Material da UFF sobre árvores](http://www.ic.uff.br/~boeres/slides_ed/ed_ArvoresPercursos.pdf)
+* [Material da UFES](http://www.inf.ufes.br:8080/~pdcosta/ensino/2011-1-estruturas-de-dados-ec/slides/Aula15%20%28arvores%29.pdf)
+
+### Árvores binárias
+
+* [Material da USP sobre as Árvores Binárias de Busca](https://www.ime.usp.br/~pf/estruturas-de-dados/aulas/st-bst.html)
+
+### Percurso em árvores binárias
+
+Referência: [Material da USP](https://www.ime.usp.br/~song/mac5710/slides/05tree.pdf)
+
+* Pre Ordem ou percurso em profundidade (*depth-first*)
+  1. Visitar a raiz (nó)
+  2. Percorrer a sub-árvore da esquerda em pré-ordem
+  3. Percorrer a sub-árvore da direita em pré-ordem
+
+* Simétrica ou in-ordem
+  1. Percorrer a sub-árvore da esquerda em in-ordem
+  2. Visitar a raiz (nó)
+  3. Percorrer a sub-árvore da direita em in-ordem
+
+* Pós ordem
+  1. Percorrer a sub-árvore da esquerda em pós-ordem
+  2. Percorrer a sub-árvore da direita em pós-ordem
+  3. Visitar a raiz (nó)
