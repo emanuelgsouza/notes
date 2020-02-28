@@ -429,3 +429,55 @@ Referência: [Material da USP](https://www.ime.usp.br/~song/mac5710/slides/05tre
   1. Percorrer a sub-árvore da esquerda em pós-ordem
   2. Percorrer a sub-árvore da direita em pós-ordem
   3. Visitar a raiz (nó)
+
+## Grafos
+
+O que é um Grafo? São estruturas matemáticas que permitem codificar relacionamentos entre pares de objetos. Os objetos são os **vértices** (ou **nós**) do grafo.
+
+Para que servem?
+* Modelar conexões numa rede social
+* Busca no labirinto
+* Rotas de metrô
+
+### Definições
+
+#### Grafos dirigidos (direcionados)
+
+São grafos em que os relacionamento entre os vértices são dirigidos. Podemos afirmar que, em grafos dirigidos, as arestas são pares ordenados de vértices.
+
+#### Grafos não dirigidos (não direcionados)
+
+Podemos seguir com o relacionamento em qualquer direção. O relacionamento possuem duplo sentido
+
+#### Grau de um vértice
+
+Um vértice poderá ter um grau, que é determinado por:
+
+* Quantidade de aretas ligadas a ele no contexto de grafos não dirigidos
+* Soma das quantidades de arestas que saem com a quantidades de arestas que entram, em grafos dirigidos. Podemos ainda ter os graus de entradas (quantidade de vértices que entram) e graus de saída (quantidade de vértices que saem).
+
+#### Caminho
+
+Define o percurso de um vértice ao outro por uma aresta. Assim, o **comprimento de caminho** seria a quantidade de arestas num determinado caminho.
+
+#### Ciclo
+
+Acontece quando podemos percorrer um caminho de um determinado vértice e voltar para o mesmo. Quando um grafo tem ao menos um ciclo, ele é chamado de **cíclico** e quando não possui, de **acíclico**.
+
+#### Conectividade
+
+Em grafos não dirigidos, um grafo é conexo quando todos os pares de vértices dele tiverem ao menos um caminho
+
+Em grafos dirigidos:
+* Fortemente conexo, quando eu consigo acessar qualquer vértice de um vértice em específico (todos vértices estão conectados)
+* Conexo, quando é possível acessar um vértice de outro, mas não é possível voltar
+* Fracamente conexo, quando a substituição de suas arestas direcionadas por não direcionadas resultar num grafo conexo.
+
+#### Grafos ponderados
+
+Quando associamos valores (pesos) as arestas de um grafo, temos um grafo ponderado. Mas o que podem ser os pesos? Podem ser custos, distâncias entre outras coisas...
+
+### Representação de um grafo
+
+* Matriz de adjacências
+* LIsta de adjacências
