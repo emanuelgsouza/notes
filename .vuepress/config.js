@@ -15,6 +15,7 @@ module.exports = {
     lastUpdated: 'Última atualização',
     sidebar: [
       '/',
+      '/developer/',
       '/front-end/',
       '/javascript/',
       '/data-structures/'
