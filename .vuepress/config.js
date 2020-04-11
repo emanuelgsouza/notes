@@ -15,7 +15,14 @@ module.exports = {
     lastUpdated: 'Última atualização',
     sidebar: [
       '/',
-      '/developer/',
+      {
+        title: 'Developer Skills',
+        path: '/developer/',
+        children: [
+          '/developer/ssh',
+          '/developer/web-performance.md',
+        ]
+      },
       '/front-end/',
       '/javascript/',
       '/data-structures/'
