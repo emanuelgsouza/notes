@@ -1,6 +1,4 @@
-# Developer
-
-## SSH
+# SSH
 
 - [How Secure Shell Works (SSH) - Computerphile](https://www.youtube.com/watch?v=ORcvSkgdA58)
 - [Secret Key Exchange (Diffie-Hellman) - Computerphile](https://www.youtube.com/watch?v=NmM9HA2MQGI)
