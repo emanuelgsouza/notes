@@ -39,3 +39,25 @@ Quanto antes, diminua o tamanho do seu código que vai para produção. Ao dimin
 * Para HTML: [HTML Minifier](https://github.com/kangax/html-minifier)
 * Para CSS: [nano](https://github.com/cssnano/cssnano), [CSSO](https://github.com/css/csso) e [CSS minifier](https://cssminifier.com/)
 * Para JavaScript: [UglifyJS](https://github.com/mishoo/UglifyJS2)
+
+### Trabalhando com imagens
+
+#### Use os tipos de imagens corretas no momento correto
+
+* [GIF, PNG, JPG or SVG. Which One To Use? - Sitepoint](https://www.sitepoint.com/gif-png-jpg-which-one-to-use/)
+* [Image file formats: when to use each file type - 99Designs](https://en.99designs.com.br/blog/tips/image-file-types/)
+
+#### Minimize suas imagens ao máximo
+
+* Use alguma ferramenta de compressão (exemplos)
+  * Para PNGs - [TinyPNG](https://tinypng.com/)
+  * Para JPEGs - [TinyJPG](https://tinyjpg.com/)
+* Use ferramentas como o [Page Weight da imgix](https://pageweight.imgix.com/) para verificar o quanto as imagens pesam o seu site
+* Prefira usar SVGs e ícones quando não há a real necessidade de usar fotos e afins
+* Prefira SVGs para ícones e pequenas ilustrações
+* Dimensione suas imagens para cada contexto de aplicação (Desktop, Mobile e Tablet ao menos)
+  * Uma das formas de usar isso em seu website é usando media queries para definir quando uma imagem deve ser mostrada ou não
+* Procure diminuir a qualidade de suas imagens JPEGs quando possível (30%-60%)
+* Remove metadados das suas imagens
+  * O website [verexif](https://www.verexif.com/en/) mostra metadados suas imagens. Removê-las não só o faz ganhar em performance, mas também em segurança, removendo alguns dados importantes das suas imagens
+* Procure usar um CDN de imagens, como o [imginx](https://www.imgix.com/)
