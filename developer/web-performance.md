@@ -40,6 +40,18 @@ Quanto antes, diminua o tamanho do seu código que vai para produção. Ao dimin
 * Para CSS: [nano](https://github.com/cssnano/cssnano), [CSSO](https://github.com/css/csso) e [CSS minifier](https://cssminifier.com/)
 * Para JavaScript: [UglifyJS](https://github.com/mishoo/UglifyJS2)
 
+#### Procure unificar seus assets
+
+Em vez de termos inúmeros arquivos CSS e JS em seu projeto, procure uní-los em um único arquivo CSS e JS, pois isso facilitará na hora do browser fazer as requisições, pois não precisará fazer inúmeras requisições para montar uma tela
+
+Porém, se atenha ao fato do arquivo final (CSS ou JS) ficar muito grande, pois isso também será um problema.
+
+Para tanto, utilize ferramentas de bundlers. Exemplos:
+
+* [Webpack](https://webpack.js.org/)
+* [Browserify](http://browserify.org/)
+* [Parcel](https://parceljs.org/).
+
 ### Trabalhando com imagens
 
 #### Use os tipos de imagens corretas no momento correto
