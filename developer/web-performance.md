@@ -84,6 +84,16 @@ Primeiramente, é importante entender como funciona o processo de renderização
 * [Documentação da Mozilla - Em inglês](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
 * [Documentação do Google Developers - Em inglês](https://developers.google.com/web/fundamentals/performance/critical-rendering-path)
 
+Em termos gerais:
+
+1. O browser, ao receber o HTML, constrói uma [DOM (Document Object Model)](https://developer.mozilla.org/pt-BR/docs/DOM)
+2. Quando ele recebe o CSS, ele constrói uma árvore semelhante para ele, a [CSSOM (CSS Object Model)](https://developer.mozilla.org/pt-BR/docs/Glossary/CSSOM)
+3. Por fim, ao chegar o JavaScript, por padrão (ignorando a existência do atributo `defer` que indica que o JavaScript só vai ser executado após a página de fato, já estar carregada), o Browser o parseia antes de construir a [Render Tree (Árvore de Renderização)](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction). Ela é uma combinação das duas árvores anteriores. O JavaScript aqui, já pode atuar
+4. Caminhando para o final, nós temos a construção do layout, que computa aonde cada elemento da árvore estará
+5. E por fim, temos o paiting, que é a fase final, em que o browser pinta cada elemento do layout na tela
+
+Observação importante: após esse processo, cada modificação via JavaScript ou resizing do browser, por exemplo, causa uma re-renderização da Render Tree e uma nova execução dos processos 4 e 5.
+
 A seguir, alguns princípios gerais para cada recurso:
 
 ### HTML
