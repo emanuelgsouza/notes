@@ -112,3 +112,5 @@ A seguir, alguns princípios gerais para cada recurso:
 
 * [Texto do CSS Tricks sobre Prefetching, preloading, prebrowsing](https://css-tricks.com/prefetching-preloading-prebrowsing/)
 * [Documentacão oficial de como usar a aba Performance do DevTools do Chrome](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance)
+* [Texto do Cloudfare sobre HTTP/3](https://blog.cloudflare.com/http3-the-past-present-and-future/)
+* [Texto do Google Developers sobre HTTP/2](https://developers.google.com/web/fundamentals/performance/http2/)
