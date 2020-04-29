@@ -73,3 +73,44 @@ Para tanto, utilize ferramentas de bundlers. Exemplos:
 * Remove metadados das suas imagens
   * O website [verexif](https://www.verexif.com/en/) mostra metadados suas imagens. Removê-las não só o faz ganhar em performance, mas também em segurança, removendo alguns dados importantes das suas imagens
 * Procure usar um CDN de imagens, como o [imginx](https://www.imgix.com/)
+
+## Critical Render Path
+
+Como otimizar a renderização dos elementos no browser?
+
+Primeiramente, é importante entender como funciona o processo de renderização:
+
+* [Como os browsers processam seu HTML e CSS? | #1 Série Fundamentos](https://www.youtube.com/watch?v=OYQuPaGiQ6A)
+* [Documentação da Mozilla - Em inglês](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
+* [Documentação do Google Developers - Em inglês](https://developers.google.com/web/fundamentals/performance/critical-rendering-path)
+
+A seguir, alguns princípios gerais para cada recurso:
+
+### HTML
+
+1. Procure colocar a importação do CSS no `<head>`
+2. Procure colocar a importação de scripts no final da tag `<body>`
+
+### CSS
+
+[Documentação da Mozilla sobre a tag link](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/link)
+
+1. Carregue apenas o que você precisa
+2. Use o atribute media para carregar apenas o script de que precisa
+3. Procure não ter tanta [especificidade em seu CSS](https://medium.com/emanuelg-blog/entendendo-a-preced%C3%AAncia-de-estilo-em-css-especificidade-heran%C3%A7a-e-efeito-cascata-a437c4929173)
+
+### JavaScript
+
+[Documentacão do Google Developers sobre como carregar eficientemente bibliotecas de terceiros](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript)
+
+1. Carregue scripts assincronamente
+2. Use corretamente o atributo `deffer`
+3. Minimize a manipulacão do DOM
+4. Evite JavaScript bloqueante
+
+## Recursos adicionais
+
+* [Texto do CSS Tricks sobre Prefetching, preloading, prebrowsing](https://css-tricks.com/prefetching-preloading-prebrowsing/)
+* [Documentacão oficial de como usar a aba Performance do DevTools do Chrome](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance)
+* [Texto do Cloudfare sobre HTTP/3](https://blog.cloudflare.com/http3-the-past-present-and-future/)
+* [Texto do Google Developers sobre HTTP/2](https://developers.google.com/web/fundamentals/performance/http2/)
