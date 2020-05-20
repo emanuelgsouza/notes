@@ -29,8 +29,125 @@ const add = (number1: number, number2: number) => {
 }
 ```
 
+## Porque adotar TypeScript?
+
+* Evitar comportamentos inesperados.
+* Avisa alguns possíveis erros de sintaxe no código.
+* Com a tipagem estática, eu possuo uma documentação do meu código como um todo.
+
+## Desvantagens do JavaScript
+
+* Necessita ser compilado (mais um passo no processo)
+* Curva de aprendizagem e dificuldade em aprender as boas práticas
+* 
+
 ## Core Types
 
-* **Number**: TS não diferencia tipos númericos, como *double integer* ou *floats*, como outras linguagens. `5` e `5.00` são tipos `number` da mesma forma.
-* String: textos como qualquer outro (entre `""`, `''`, ``);
-* Boolean: valores `true` ou `falso`.
+### Numbers
+
+TS não diferencia tipos númericos, como *double integer* ou *floats*, como outras linguagens. `5` e `5.00` são tipos `number` da mesma forma.
+
+Então, em TS:
+
+```ts
+// Permitido
+let age = 30;
+let age: number = 30;
+
+// Não permitido
+let age = '30'; // deverá me acusar um erro, porque age é do tipo number
+```
+
+### Strings
+
+Textos como qualquer outro (entre `""`, `''`, ``);
+
+```ts
+// Permitido
+let name = 'Emanuel';
+let name: string = 'Emanuel';
+
+// Não permitido
+let name = 30;
+```
+
+### Booleans
+
+Valores já conhecidos, `true` ou `falso`.
+
+```ts
+// Permitido
+let married = true;
+let married: boolean = true;
+
+// Não permitido
+let married = 30;
+```
+
+### Objects
+
+Todo Object JS será object em TS, porém, TS poderá inferir os tipos automaticamente e não só isso, não permitir que se acesse propriedades que não existem no objeto.
+
+```ts
+// Permitido
+// TS irá inferir os tipos e as propriedades do object
+const emanuel = {
+  name: 'Emanuel',
+  age: 22,
+  married: true
+}
+console.log(emanuel.name)
+
+// Não permitido
+console.log(emanuel.lastName)
+```
+
+Podemos ainda anotar o tipo de nossos objetos:
+
+```ts
+const emanuel: {
+  name: string;
+  age: number;
+  married: boolean
+} = {
+  name: 'Emanuel',
+  age: 22,
+  married: true
+}
+```
+
+### Arrays
+
+Todo array em JS será um array em TS. A sintaxe para anotação de um array é:
+
+```ts
+// variable: <TYPE>[]
+
+// Aqui eu estou dizendo: languages é um array de strings.
+// Neste caso, estou sendo específico
+const languages: string[];
+languages = ['JavaScript', 'Python', 'PHP'];
+
+// Mas e como fazer com que eu tenha uma Array mixado?
+// Não é recomendado!
+const languagesAny: any[];
+languagesAny = ['JavaScript', 'Python', 'PHP', true, 30];
+```
+
+### Tuplas
+
+Tuplas em TS são usadas para indicar um conjunto de elementos com tamanho definido. Quando compilado, ele vira um array.
+
+```ts
+let tuple: [number, string, boolean];
+
+// Teremos consistência na quantidade de elementos
+// As linhas abaixo não compilarão
+tuple = [];
+tuple = [1];
+tuple = [1, ''];
+
+// Teremos consistência na hora de acessar os elementos
+tuple[0] // ok
+tuple[4] // not ok
+```
