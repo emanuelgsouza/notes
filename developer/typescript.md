@@ -1,5 +1,10 @@
 # Typescript
 
+## Refências
+
+* [Understanding TypeScript - 2020 Edition by Maximilian Schwarzmüller](https://www.udemy.com/course/understanding-typescript/)
+* [Minicurso de TypeScript do Willian Justen](https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_)
+
 ## O que é o Typescript?
 
 É um superset do JavaScript, isto é, é uma extensão do JavaScript que permite adicionar tipos a linguagem.
