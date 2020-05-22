@@ -151,3 +151,93 @@ tuple = [1, ''];
 tuple[0] // ok
 tuple[4] // not ok
 ```
+
+### Enun
+
+São tipos usados para enumerar valores constantes em nosso código. Por exemplo, podemos usá-lo quando precisamos trabalhar com permissões para um usuário.
+
+Escrevemos Enums:
+
+```ts
+// Por padrão, cada role abaixo compilará ao final um número
+enum Roles {
+  ADMIN, // 0
+  AUTHOR, // 1
+  USER // 2
+}
+
+// Agora podemos usar o enum
+const user = {
+  name: 'Emanuel',
+  role: Roles.ADMIN
+}
+
+// fazer comparacões
+if (user.role === Roles.ADMIN) {}
+
+// Podemos, no momento da criacão, atribuir valores
+enum Roles {
+  ADMIN = 5,
+  AUTHOR = 'AUTHOR'
+}
+```
+
+### Any
+
+É o tipo que define que posso usar qualquer valor, qualquer tipo em alguma variável.
+
+```ts
+const data = any[]; // aqui estou definindo que meu array pode receber qualquer valor
+
+// O compilador não irá acusar um erro
+let data: any = 'Emanuel';
+data = 9;
+```
+
+### Union
+
+Unios são usados para unir dois tipos e combiná-los de maneira a expressar quais seriam os tipos específicos que uma variável poderia receber. Exemplo:
+
+```ts
+// estou dizendo que user pode ser um objeto com um name ou uma string
+let user = { name: string } | string;
+
+user = { name: 'Emanuel' }; // ok
+user = 'Emanuel'; // ok
+```
+
+### Literals
+
+Tipos literais usam os tipos comuns da linguagem JS e definem como uma constante uma variável.
+
+Exemplo:
+
+```ts
+// como estou usando const, name se torna uma constante do tipo 'Emanuel'
+const name = 'Emanuel';
+
+// mesmo princípio
+const age = 22;
+```
+
+### Type aliases
+
+Em TS, é possível criar seu próprio tipo. Com isso, você precisará usar `type` para dizer ao TS que aquilo é um tipo criado por você. Ele é util para reaproveitamento de código.
+
+```ts
+// definindo um tipo usando Literal type e Union
+type GENRE = 'M' | 'F';
+
+type User = {
+  name: string;
+  age: number;
+  genre: GENRE;
+}
+
+// definindo que emanuel é do tipo User
+const emanuel: User = {
+  name: 'Emanuel',
+  age: 22,
+  genre: 'M' // se eu tentar colocar 'D', por exemplo, será emitido um erro
+}
+```
