@@ -241,3 +241,50 @@ const emanuel: User = {
   genre: 'M' // se eu tentar colocar 'D', por exemplo, será emitido um erro
 }
 ```
+
+### Function types
+
+Funcões também podem ser tipos. Isso é útil para definirmos os tipos que uma funcão precisa receber, e o seu tipo de retorno.
+
+```ts
+function add(n1: number, n2: number): number {
+  return n1 + n2;
+}
+
+// aqui estamos definindo que a funcão plusFn será uma funcão
+// que recebe dois argumentos e retorna um numero
+const plusFn: (n1: number, n2: number) => number;
+
+// o codigo abaixo irá compilar
+plusFn = add;
+
+// esse codigo não
+plusFn = console.log;
+```
+
+### unknown
+
+O tipo `unknown` é parecido com o `any`, porém mais específico, pois nos obriga a checar nosso código caso venhamos a tratar a variável com o tipo `unknown` como uma variável de um outro tipo específico.
+
+```ts
+const input: unknown;
+let name: string;
+
+// não é permitido
+name = input;
+
+// permitido
+if (typeof input === 'string') {
+  name = input;
+}
+```
+
+### never
+
+Este tipo define que uma funcão nunca irá retornar nada ou é uma funcão que levanta uma excessão. Ele é mais especícifo que `void`.
+
+```ts
+function error(message: string): never {
+  throw new Error(message);
+}
+```
