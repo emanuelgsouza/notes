@@ -288,3 +288,50 @@ function error(message: string): never {
   throw new Error(message);
 }
 ```
+
+### Classes
+
+As classes em TS seguem o conceito de Classes do paradigma de Programação Orientação a Objeto. O resultado compilado depende de qual o target de compatibilidade é exigido:
+
+* Se `es6`, a classe será transformada em apenas uma classe normal do JavaScript, mas sem as notações de tipo
+* Se `es5`, a classe será transformada em uma função construtora.
+
+A sintaxe para definição de classe é:
+
+```ts
+class User {
+  name: string;
+  age: number;
+
+  constructor (n: string, a: number) {
+    this.name = n;
+    this.age = a;
+  }
+}
+
+const emanuel = new User('Emanuel', 22);
+```
+
+TS usa os mesmos conceitos da OOP:
+
+* Herança
+* Classes Abstratas
+* Métodos estáticos
+* Restrições de acesso como `public`, `private` e `protected`
+
+Há uma diferenciação necessária. TS adiciona também como restrição de acesso o `readonly`, que marca que um determinado atributo de um objeto não pode ser modificado
+
+```ts
+class User {
+  readonly name: string;
+  private age: number;
+
+  constructor (n: string, a: number) {
+    this.name = n;
+    this.age = a;
+  }
+}
+
+const emanuel = new User('Emanuel', 22);
+emanuel.name = 'Emanuel Gonçalves'; // não é possível
+```
