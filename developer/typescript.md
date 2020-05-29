@@ -335,3 +335,66 @@ class User {
 const emanuel = new User('Emanuel', 22);
 emanuel.name = 'Emanuel Gonçalves'; // não é possível
 ```
+
+### Interfaces
+
+Interfaces são formas de definição de contratos em Typescript. Portanto, com uma interface podemos definir os tipos de dados que um determinado objeto precisará ter, como também a assinatura de uma função.
+
+Interfaces também são úteis para descrever o **contrato de uso de uma biblioteca externa**, ou de uma aplicação.
+
+Basicamente uma interface terá o seguinte formato:
+
+```ts
+interface UserInterface {
+  name: string;
+  birthday: string;
+
+  // declarando o contrato de um método
+  calculateAge(year: number): number;
+
+  // valores opcionais
+  friends?: string[];
+
+  // definindo que a interface pode ter outros campos não declarados
+  [propName: string]: number;
+}
+
+const emanuel: UserInterface = { name: 'Emanuel', birthday: '1997-08' };
+console.log(emanuel);
+```
+
+#### Function Interfaces
+
+É possível definir interfaces para funções, que descrevem quais argumentos uma função precisará receber como também o seu tipo de retorno:
+
+```ts
+interface User {
+  name: string;
+}
+
+interface GetUser {
+  (name: string): User;
+}
+
+const users: ReadonlyArray<User> = [];
+
+let getUserIm: GetUser;
+getUserIm = (name) => {
+  const usersFound = users.filter(user => user.name === name);
+  return usersFound.length > 0 ? usersFound[0] : { name: '' };
+};
+```
+
+#### Implement
+
+É possível que interfaces extendam outras interfaces, e ainda múltiplas interfaces
+
+```ts
+interface Animal {
+  name: string;
+}
+
+interface Human extends Animal {}
+
+interface Dog extends Animal {}
+```
