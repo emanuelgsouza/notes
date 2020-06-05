@@ -398,3 +398,51 @@ interface Human extends Animal {}
 
 interface Dog extends Animal {}
 ```
+
+### Type Guards
+
+[Ref](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types)
+
+*Type Guards* (proteção de tipo), em Typescript, são expressões que são executadas em *runtime* e que garantem que se está trabalhando com um determinado tipo. Eles são dos seguintes tipos:
+
+* Usando `typeof` para checar se um tipo é string, number entre outros.
+* Usando o operador `in` para checar se uma propriedade ou método existe num objeto.
+* Usando o operador `instanceof` para checar se uma variável é instância de uma classe
+
+### Index types
+
+[Ref](https://www.typescriptlang.org/docs/handbook/advanced-types.html#index-types)
+
+São usados para definir ao Typescript que uma determinada interface possui propriedades dinâmicas, ou seja, não queremos ser explícitos com relação à isso.
+
+```ts
+interface User {
+  name: string;
+
+  [prop: string]: string;
+
+  // como eu defini que aqui as propriedades serão strings e os tipos de retorno strings
+  // eu não posso definir a propriedade abaixo
+  id: number;
+}
+```
+
+### Function Overloads
+
+[Ref](https://www.typescriptlang.org/docs/handbook/functions.html#overloads)
+
+É um mecanismo que permite sobrescrever a assinatura de uma função e deixá-la mais rica e inteligente.
+
+```ts
+type Numeric = string | number;
+
+function add(a: string, b: string): string;
+function add(a: number, b: number): number;
+function add(a: Numeric, b: Numeric) {
+  if (typeof a === 'string' || typeof b === 'string') {
+    return a.toString() + b.toString()
+  }
+
+  return a + b;
+}
+```
