@@ -35,11 +35,10 @@ const add = (number1: number, number2: number) => {
 * Avisa alguns possíveis erros de sintaxe no código.
 * Com a tipagem estática, eu possuo uma documentação do meu código como um todo.
 
-## Desvantagens do JavaScript
+## Desvantagens do Typescript
 
 * Necessita ser compilado (mais um passo no processo)
 * Curva de aprendizagem e dificuldade em aprender as boas práticas
-* 
 
 ## Core Types
 
@@ -446,3 +445,50 @@ function add(a: Numeric, b: Numeric) {
   return a + b;
 }
 ```
+
+## Generics
+
+[Ref](https://www.typescriptlang.org/docs/handbook/generics.html)
+
+Generics são uma *feature* do Typescript que permite criar um código mais reusável e manutenível. O objetivo dos Generics é definir, de uma maneira geral, os tipos que uma classe pode receber, os argumentos que uma função pode receber entre outros usos.
+
+Vamos a um exemplo de implementação da função `map` (`Array.map`) do JavaScript:
+
+```ts
+// a função de callback para map precisa ter essa assinatura
+interface FunctionToMap {
+  (value: any, index: number, array: any[]): unknown
+}
+
+const map = (data: any[], fn: FunctionToMap) => data.map(fn)
+
+// Pois bem, vamos tentar executar essa função map
+const res = map([1, 2, 3], val => val * 2)
+
+// ele vai dizer que isNan não é uma função do tipo unknown
+res[0].toPrecision()
+```
+
+Agora, implementando Generics
+
+```ts
+// a mudança agora está no fato de que a interface abaixo
+// afirma que recebe um valor qualquer, mas somente aquele valor
+interface FunctionToMap<T> {
+  (value: T, index: number, array: Array<T>): T
+}
+
+// aqui estou dizendo que a função map T
+// faz uso de uma Generic (não sei qual o tipo final dela), mas apenas
+function map<T> (data: Array<T>, fn: FunctionToMap<T>): Array<T> {
+  return data.map(fn)
+}
+
+// agora, ao executar a função map abaixo, o TS irá entender que o tipo de retorno da função será um array de números
+const res = map([1, 2, 3], val => val * 2)
+
+// e assim, eu posso usar os métodos e manipular como eu quiser
+res[0].toPrecision()
+```
+
+Existem algumas [Generics já built-in na linguagem](https://www.typescriptlang.org/docs/handbook/utility-types.html), como o *Partial* e o *Readonly*.
