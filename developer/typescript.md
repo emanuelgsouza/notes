@@ -492,3 +492,164 @@ res[0].toPrecision()
 ```
 
 Existem algumas [Generics já built-in na linguagem](https://www.typescriptlang.org/docs/handbook/utility-types.html), como o *Partial* e o *Readonly*.
+
+## Decorators
+
+[Ref](https://www.typescriptlang.org/docs/handbook/decorators.html)
+
+É necessário habilitar no `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "experimentalDecorators": true
+  }
+}
+```
+
+Um decorator é **apenas uma funcão** que recebe determinados argumentos dependendo do tipo que ele é.
+
+Mais quais são os tipos?
+
+### Class Decorator
+
+São decorators usados em classes. Sua funcão recebe apenas um parâmetro que é o construtor da classe. Exemplo retirado do vídeo do [Willian Justen](https://www.youtube.com/watch?v=o1gCpXdVyHE&list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_&index=14).
+
+```ts
+// criar um decorator que adiciona uma versão a uma classe qualquer
+
+// aqui estou criando uma factory de decorators
+function setApiVersion (apiVersion: string) {
+
+  // como este decorator será usado para classes, ele recebe apenas o construtor da classe
+  return (constructor) => {
+    return class extends constructor {
+      version: apiVersion
+    }
+  }
+}
+
+@setApiVersion("1.0.0")
+class API {}
+
+console.log(new API()) // { version: 1.0.0 }
+```
+
+### Property Decorator
+
+Este trabalhará em cima de uma propriedade de uma classe. **Eles são usados bastante para validacão**. Mais um exemplo do vídeo:
+
+```ts
+// objetivo: criar um decorator para validacão de entrada numa propriedade
+// mais uma factory
+function minLength (length: number) {
+  // o decorator recebe dois parametros:
+  // - target: prototype da classe
+  // - key: nome da propriedade que está sendo anotada
+  return (target: any, key: string) => {
+    let val = target[key];
+
+    const getter = () => val;
+
+    const setter = (value: string) => {
+      if (value.length < length) {
+        console.log('Não é possivel inserir dados com menos de 5 caracteres')
+      } else {
+        val = value;
+      }
+    }
+
+    Object.defineProperty(target, key, {
+      get: getter,
+      set: setter
+    })
+  }
+}
+
+class Movie {
+  @minLength(5)
+  title: string;
+
+  constructor (t: string) {
+    this.title = t;
+  }
+}
+
+const movie = new Movie('Avengers Endgame')
+```
+
+### Method Decorator
+
+São decorators criados para anotar métodos. **E eles são chamados no momento que o método for executado**. Você pode usar ele para criar algumas funcões úteis, como `debounce`, `throttle`
+
+```ts
+// objetivo: criar um decorator que dá um delay para um método
+function delay(ms: number) {
+  // o decorator recebe dois parametros:
+  // - target: prototype da classe
+  // - key: nome do método
+  // - descriptor: algumas informações sobre o método
+  return (target: any, key: string, descriptor: PropertyDescriptor) => {
+    // pegando a função original
+    const originalMethod = descriptor.value;
+
+    descriptor.value = function (...args) {
+      setTimeout(() => {
+        originalMethod.apply(this, args)
+      }, ms)
+    }
+
+    return descriptor;
+  }
+}
+
+class Greeter {
+  greeting: string;
+
+  constructor (g: string) {
+    this.greeting = g;
+  }
+
+  @delay(1000)
+  greet () {
+    console.log(`Hello ${this.greeting}!`)
+  }
+}
+```
+
+### Accessor Decorators
+
+São decorators usados aos acessores de uma propriedade de uma classe: `get` e `set`. Exemplo retirado da documentacão:
+
+```ts
+function configurable(value: boolean) {
+  // recebe os mesmos argumentos Method Decorator
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    descriptor.configurable = value;
+  };
+}
+
+class Greeter {
+  greeting: string;
+
+  constructor(m: string) {
+    this.greeting = m;
+  }
+
+  @configurable(false)
+  greet() {
+    return "Hello, " + this.greeting;
+  }
+}
+```
+
+### Parameter Decorators
+
+São decorators usados para parâmetros de um método ou um construtor de uma classe. Bastante utilizado com a lib reflect-metadata.
+
+### Encadeamento de decorators
+
+[Ref](https://www.typescriptlang.org/docs/handbook/decorators.html#decorator-composition)
+
+É possível encadear decorators. Quando anotamos mais de um decorator à um método, por exemplo, a execucão dos decorators será na órdem inversa a qual foram adicionados.
